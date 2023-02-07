@@ -451,8 +451,7 @@ namespace AssetStudio
                                 obj = new RectTransform(objectReader);
                                 break;
                             case ClassIDType.Shader:
-                                obj = new Shader(objectReader);
-                                break;
+                                goto after;
                             case ClassIDType.SkinnedMeshRenderer:
                                 obj = new SkinnedMeshRenderer(objectReader);
                                 break;
@@ -482,6 +481,7 @@ namespace AssetStudio
                                 break;
                         }
                         assetsFile.AddObject(obj);
+                        after: ;
                     }
                     catch (Exception e)
                     {
